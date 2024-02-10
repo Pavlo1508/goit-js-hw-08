@@ -67,7 +67,7 @@ const images = [
 const gallery = document.querySelector('.gallery');
 
 function galleryItemTemplate(item) {
-	return `<li class="gallery-item" style=>
+	return `<li class="gallery-item">
   <a class="gallery-link" href="${item.original}">
     <img
       class="gallery-image"
@@ -103,5 +103,11 @@ function onGalleryClick (event) {
 	<img src="${event.target.dataset.source}" alt="${event.target.alt}">
 `,)
 	instance.show()
+
+	document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      instance.close();
+    }
+  });
 };
 
